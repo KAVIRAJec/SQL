@@ -42,18 +42,18 @@
 -- (10, '2025-04-02', FALSE, 120.10);
 
 -- INNER JOINS
--- SELECT Customers.Name, Customers.PhoneNumber, Orders.OrderDate, Orders.DeliveryStatus, Orders.TotalAmount
--- FROM Customers INNER JOIN Orders 
--- ON Customers.CustomerID = Orders.CustomerID
+SELECT Customers.Name, Customers.PhoneNumber, Orders.OrderDate, Orders.DeliveryStatus, Orders.TotalAmount
+FROM Customers INNER JOIN Orders 
+ON Customers.CustomerID = Orders.CustomerID;
 
 -- LEFT JOINS
 -- INSERT INTO Customers (Name, UserName, Email, PhoneNumber) 
 -- VALUES 
 -- ('Left_Test', 'johndoe', 'john.doe@email.com', '555-1234');
 
--- SELECT Customers.Name, Customers.PhoneNumber, Orders.OrderDate, Orders.DeliveryStatus, Orders.TotalAmount
--- FROM Customers LEFT JOIN Orders 
--- ON Customers.CustomerID = Orders.CustomerID
+SELECT Customers.Name, Customers.PhoneNumber, Orders.OrderDate, Orders.DeliveryStatus, Orders.TotalAmount
+FROM Customers LEFT JOIN Orders 
+ON Customers.CustomerID = Orders.CustomerID;
 
 -- RIGHT JOINS
 -- INSERT INTO Orders (CustomerID, OrderDate, DeliveryStatus, TotalAmount)
@@ -65,6 +65,5 @@
 -- ON Customers.CustomerID = Orders.CustomerID
 
 -- FULL OUTER JOINS
--- SELECT Customers.Name, Customers.PhoneNumber, Orders.OrderDate, Orders.DeliveryStatus, Orders.TotalAmount
--- FROM Customers FULL OUTER JOIN Orders 
--- ON Customers.CustomerID = Orders.CustomerID
+SELECT Customers.Name, Customers.PhoneNumber, Orders.OrderDate, Orders.DeliveryStatus, Orders.TotalAmount
+FROM Customers CROSS JOIN Orders;
