@@ -37,19 +37,13 @@ ON CO.dt = O.OrderDate;
 
 -- Recursive CTE product belongs to a category, and categories can have subcategories.
 WITH RECURSIVE CustomerHierarchy AS (
-	-- Base Level - Customer
-    SELECT C.CustomerID, C.Name as CustomerName, NULL as OrderID, NULL AS ProductID, 1 as Level
-    FROM Customers C
-    
-    UNION ALL
-    
-    SELECT C.CustomerID, C.Name as CustomerName, O.OrderID, NULL as ProductID, 2 as Level
+    SELECT C.CustomerID, C.Name as CustomerName, O.OrderID, NULL as ProductID, 0 as Level
     FROM Orders O INNER JOIN Customers C
     ON O.CustomerID = C.CustomerID
     
     UNION ALL
 	
-    SELECT C.CustomerID, C.Name as CustomerName, O.OrderID, P.ProductID, 3 as Level
+    SELECT C.CustomerID, C.Name as CustomerName, O.OrderID, P.ProductID, 1 as Level
     FROM Orders O
     INNER JOIN Customers C ON O.CustomerID = C.CustomerID
     INNER JOIN Products P ON O.ProductID = P.ProductID
